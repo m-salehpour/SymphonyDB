@@ -1,4 +1,4 @@
-# SymphonyDB: A Polygloty for Knowledge Graph Query Processing
+# SymphonyDB: A Polyglot for Knowledge Graph Query Processing
 This codebase is part of a research project to present SymphonyDB, a prototype based on the polygloty model of query processing which is a multi-database approach supported by a unified access layer that can analyze/translate individual Knowledge Graph (KG) queries just-in-time and match each to the combination of likely best-performing Data Management Systems (DMSs) using Virtuoso, Blazegraph, RDF-3X, and MongoDB that are currently included in our prototype.
 
 # To replicate the results
