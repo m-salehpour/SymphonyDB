@@ -30,7 +30,7 @@ This codebase is part of a research project to present SymphonyDB, a prototype b
 
 
 ### Complete Evaluation Results
-Our complete evaluation results can be found [here](https://github.com/oursubmission/CKG/tree/master/Results)
+Our complete evaluation results can be found [here](https://github.com/m-salehpour/SymphonyDB/tree/master/Results)
 
 # Authors
 * Masoud Salehpour (University of Sydney)
