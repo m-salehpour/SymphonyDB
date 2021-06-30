@@ -1,0 +1,6 @@
+db.sub.aggregate([ {"$match":{ "participates_in" : {"$exists": true}}},{$limit:1} ]).pretty()
+db.sub.aggregate([ {"$match":{ "participates_in" : {"$exists": true}}},{$limit:1} ]).pretty()
+db.sub.aggregate([ {"$match":{ "idPrimaryKey" : "CCO_B0001575"}},{$match:{"transforms_into":{$exists:true}}}, {"$lookup":{from:"sub", localField:"transforms_into",foreignField:"idPrimaryKey", as: "sojoin11" }},{$unwind:"$sojoin11"} ,{"$match":{ "sojoin11.label" : {"$exists": true}}},{$match:{"sojoin11.Definition":{$exists:true}}}, {"$lookup":{from:"sub", localField:"sojoin11.Definition",foreignField:"idPrimaryKey", as: "sojoin11.sojoin22" }} ,{"$match":{ "sojoin11.sojoin22.def" : {"$exists": true}}}]).pretty()
+db.sub.aggregate([ {"$match":{ "participates_in" : {"$exists": true}}},{$limit:1} ]).pretty()
+db.sub.aggregate([ {"$match":{ "participates_in" : {"$exists": true}}}, {"$addFields": { "OPT2" : { "$cond": { if: { "$not" : ["$label"]}, then:[ ] , else:"$label" }}}} ,{"$match":{ "type" : {"$exists": true}}},{"$match":{ "has_source" :  "CCO_T0000034"}}]).pretty()
+db.sub.aggregate([ {"$match":{ "participates_in" : {"$exists": true}}},{"$match":{ "label" : {"$exists": true}}},{"$match":{ "type" : {"$exists": true}}},{"$match":{ "has_source" :  "CCO_T0000034"}},{  "$sort": {"label": -1}}]).pretty()

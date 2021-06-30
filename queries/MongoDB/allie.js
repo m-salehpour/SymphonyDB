@@ -1,0 +1,5 @@
+db.sub.aggregate([ {"$match":{ "inResearchAreaOf" : {"$exists": true}}}]).pretty()
+db.sub.aggregate([ {"$match":{ "inResearchAreaOf" : {"$exists": true}}},{ "$addFields": { "key_01" :{ "$eq":[ "$inResearchAreaOf", "D000163" ] }}},{"$match": { "key_01" : true   }  }  ]).pretty()
+db.sub.aggregate([ {"$match":{ "inResearchAreaOf" : {"$exists": true}}},{"$match":{ "label" : {"$exists": true}}}]).pretty()
+db.sub.aggregate([ {$match:{"hasMemberOf":{$exists:true}}}, {"$lookup":{from:"sub", localField:"hasMemberOf",foreignField:"idPrimaryKey", as: "sojoin11" }},{$unwind:"$sojoin11"} ,{"$match":{ "sojoin11.frequency" : {"$exists": true}}},{ "$limit":  10}]).pretty()
+db.sub.aggregate([ {"$match":{ "hasShortFormOf" :  "39408"}},{"$match":{ "appearsIn" : {"$exists": true}}},{"$match":{ "cooccursWith" : {"$exists": true}}},{"$match":{ "frequency" : {"$exists": true}}},{"$match":{ "inResearchAreaOf" : {"$exists": true}}},{"$match":{ "hasLongFormOf" : {"$exists": true}}},{"$match":{ "type" : {"$exists": true}}},{"$match":{ "appearsIn" : {"$exists": true}}},{"$match":{ "cooccursWith" : {"$exists": true}}},{  "$sort": {"inResearchAreaOf": 1}},{ "$limit":  10}]).pretty()
